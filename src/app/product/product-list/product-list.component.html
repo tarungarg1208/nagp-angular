@@ -1,10 +1,14 @@
-<div style="padding: 10px;">
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="../../../assets/product_images/product_1.jpg" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Tide</h5>
-      <p class="card-text">Detergent Powder.</p>
-      <a href="#" class="btn btn-info">Add to Cart</a>
+
+<div class="container col-sm-12" style="padding: 10px; padding-bottom: 40px;">
+  <h3>Products Catalogue</h3>  
+  <div class="card" style="width: 18rem; " *ngFor="let product of products">
+      <img class="card-img-top" src="../../../assets/product_images/product_{{product.id}}.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">{{product.description}}</p>
+        <h6 class="card-title">Rs:{{product.price}}</h6>
+        <button type="button" class="btn btn-info" (click)="addToCart(product.id)">Add to Cart</button>
+        <!-- <button type="button" class="btn btn-info" (click)="addToCart({{product.id}})">Add to Cart</button> -->
+      </div>
     </div>
-  </div>
 </div>

@@ -1,0 +1,16 @@
+<div class="container col-sm-12" style="padding: 10px; padding-bottom: 40px;" *ngIf="products_cart.length">
+    <h3>Your Cart</h3>  
+    <div class="card" style="width: 18rem; " *ngFor="let product of products_cart">
+      <img class="card-img-top" src="../../assets/product_images/product_{{product.id}}.jpg" alt="{{product.name}}">
+      <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">{{product.description}}</p>
+        <h6 class="card-title">Rs:{{product.price}}</h6>
+        <!-- <button type="button" class="btn btn-info" (click)="addToCart(product.id)">Add to Cart</button> -->
+        <!-- <button type="button" class="btn btn-info" (click)="addToCart({{product.id}})">Add to Cart</button> -->
+      </div>
+    </div>
+</div>
+<div *ngIf="!products_cart.length">
+  <img src="../../assets/empty_cart.jpg" class="img-fluid" alt="Empty Cart">
+</div>
