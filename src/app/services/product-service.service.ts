@@ -25,6 +25,36 @@ export class ProductServiceService {
       'name': 'Vaseline Body Lotion',
       'description': 'Body Lotion',
       'price': 350
+    },
+    {
+      'id': 4,
+      'name': 'Dabur Amla Hair Oil',
+      'description': 'Hair Oil',
+      'price': 199
+    },
+    {
+      'id': 5,
+      'name': 'Vim Liquid',
+      'description': 'Dishwash Liquid Gel',
+      'price': 105
+    },
+    {
+      'id': 6,
+      'name': 'Head & Shoulder Shampoo',
+      'description': 'Shampoo',
+      'price': 650
+    },
+    {
+      'id': 7,
+      'name': 'Ariel Top Load Liquid',
+      'description': 'Liquid Detergent',
+      'price': 199
+    },
+    {
+      'id': 8,
+      'name': 'Bournvita',
+      'description': 'Health Drink',
+      'price': 390
     }
   ]
   cart_product_id:number[]=[];
