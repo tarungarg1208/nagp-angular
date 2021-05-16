@@ -10,6 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './cart/cart.component';
 import { PaymentComponent } from './payment/payment.component';
 import { OrderProcessingComponent } from './order-processing/order-processing.component'
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthenticationGuard } from './services/authentication.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,9 +26,10 @@ import { OrderProcessingComponent } from './order-processing/order-processing.co
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthenticationGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
