@@ -12,7 +12,6 @@ export class AppComponent {
 
   }
   setActive(value: string) {
-    console.log(this.router.url)
     if (this.router.url.indexOf(value) > 0) {
       return true;
     }
