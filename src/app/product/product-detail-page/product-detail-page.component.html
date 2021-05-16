@@ -1,0 +1,16 @@
+<div class="container" style="padding: 10px; padding-bottom: 40px;">
+    <h3>Products Detail Page</h3>
+    <div class="row">
+      <div class="card col-sm-12" style="width: 18rem;  padding: 10px;">
+        <img class="card-img-top" src="../../../assets/product_images/product_{{productView.id}}.jpg" alt="Card image cap">
+        <div class="card-body" style="align-items: center;">
+          <h5 class="card-title">Product Name:{{productView.name}}</h5>
+          <p class="card-text">Product Description:{{productView.description}}</p>
+          <h6 class="card-title">Price Price in INR:{{productView.price}}</h6>
+          <div class="row">
+          <button type="button" class="btn btn-primary" [routerLink]="['/product']">Browse more products</button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>

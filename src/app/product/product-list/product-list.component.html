@@ -7,8 +7,10 @@
         <h5 class="card-title">{{product.name}}</h5>
         <p class="card-text">{{product.description}}</p>
         <h6 class="card-title">Rs:{{product.price}}</h6>
-        <button type="button" class="btn btn-info" (click)="addToCart(product.id)">Add to Cart</button>
-        <!-- <button type="button" class="btn btn-info" (click)="addToCart({{product.id}})">Add to Cart</button> -->
+        <div class="row">
+        <button type="button" class="btn btn-info" (click)="addToCart(product.id)">Add to Cart</button>&nbsp;
+        <button type="button" class="btn btn-primary" [routerLink]="['/product/pdp']">View Product</button>
+      </div>
       </div>
     </div>
   </div>
