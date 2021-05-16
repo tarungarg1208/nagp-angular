@@ -2,17 +2,18 @@
   <h3>Your Cart</h3>
   <div class="row">
     <div class="card col-sm-3" style="width: 18rem; " *ngFor="let product of products_cart">
-      <img class="card-img-top" src="../../assets/product_images/product_{{product.id}}.jpg" alt="{{product.name}}">
+      <img class="card-img-top" src="../../assets/product_images/product_{{product.product.id}}.jpg" alt="{{product.product.name}}">
       <div class="card-body">
-        <h5 class="card-title">{{product.name}}</h5>
-        <p class="card-text">{{product.description}}</p>
-        <h6 class="card-title">Rs:{{product.price}}</h6>
+        <h5 class="card-title">Product:{{product.product.name}}</h5>
+        <p class="card-text">Quantity:{{product.qty}}</p>
+        <h6 class="card-title">Unit Price:{{product.product.price}}</h6>
         <!-- <button type="button" class="btn btn-info" (click)="addToCart(product.id)">Add to Cart</button> -->
       </div>
     </div>
   </div>
   <br><br>
-  <button type="button" class="btn btn-success btn-lg" [routerLink]="['/payment']">Checkout</button>
+  <button type="button" class="btn btn-success btn-lg" [routerLink]="['/payment']">Checkout</button>&nbsp;
+  <button type="button" class="btn btn-danger btn-lg" [routerLink]="['/product']" (click)="clearCart()">Clear Cart Products</button>
 </div>
 <div *ngIf="!products_cart.length">
   <img src="../../assets/empty_cart.jpg" class="img-fluid" alt="Empty Cart">

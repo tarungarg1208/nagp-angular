@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { Product } from 'src/app/data/product-data'
+import { Injectable, ɵɵsetComponentScope } from '@angular/core';
+import { Product, ProductCart } from 'src/app/data/product-data'
 
 @Injectable({
   providedIn: 'root'
@@ -58,27 +58,38 @@ export class ProductServiceService {
     }
   ]
   cart_product_id:number[]=[];
+  cart_products: ProductCart[]=[];
   getProducts(){
     return this.products;
   }
+  // addProductToCart(product_id:number){
+  //   if(!this.cart_product_id.includes(product_id)){
+  //     this.cart_product_id.push(product_id)
+  //   }
+  //   else
+  //   {
+  //     console.log(`Product Id:${product_id}, is already in Cart`)
+  //   }
+  // }
   addProductToCart(product_id:number){
-    if(!this.cart_product_id.includes(product_id)){
-      this.cart_product_id.push(product_id)
+    for(var product of this.cart_products){
+      if(product.product.id==product_id){
+        product.qty=product.qty+1
+        product.amount=product.amount+product.product.price
+        console.log("Product already exists in cart. Adding quantity by 1")
+        return;
+      }
     }
-    else
-    {
-      console.log(`Product Id:${product_id}, is already in Cart`)
-    }
-  }
-  getCartProductIds(){
-    return this.cart_product_id;
+    let new_product_cart:ProductCart={'product':this.products[product_id-1],'qty':1,'amount':this.products[product_id-1].price}
+    this.cart_products.push(new_product_cart)
+    console.log("NEW PRODUCT ADDED")
   }
   getCartProducts(){
-    var current_cart:Product[]=[];
-    for(var productId of this.cart_product_id){
-      console.log("PROCESSING PRODUCT ID",productId)
-      current_cart.push(this.products[productId-1])
-    }
-    return current_cart;
+    return this.cart_products
+  }
+  emptyCart(){
+    console.log("Clearing Cart")
+    this.cart_products=[]
+    console.log("Cart is now empty.")
   }
 }
